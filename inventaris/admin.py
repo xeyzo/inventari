@@ -90,6 +90,15 @@ class RuangAdmin (admin.ModelAdmin):
 
 admin.site.register(Ruang, RuangAdmin)
 
+class PengembalianAdmin (admin.ModelAdmin):
+    list_display = ['id_pengembalian','id_peminjaman','tanggal_kembali','status_peminjaman']
+    list_filter = ()
+    search_field = ['id_peminjaman','status_peminjaman']
+    list_per_page = 10
+
+admin.site.register(Pengembalian, PengembalianAdmin)
+
+
 
 
 

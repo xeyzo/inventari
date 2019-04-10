@@ -22,6 +22,19 @@ class Peminjaman (models.Model):
     tanggal_kembali = models.DateField()
     status_peminjaman = models.CharField(max_length=30, choices=STATUS_PEMINJAMAN_CHOICE)
 
+
+class Pengembalian (models.Model):
+    STATUS_PEMINJAMAN_CHOICE = (
+        ('Dikembalikan','Dikembalikan'),
+        ('Belum_Dikembalikan','Belum_Dikembalikan'),
+    )
+    id_pengembalian = models.CharField(max_length=4, primary_key='true')
+    id_peminjaman = models.ForeignKey('Peminjaman', on_delete=models.CASCADE,)
+    tanggal_kembali = models.DateField()
+    status_peminjaman = models.CharField(max_length=30, choices=STATUS_PEMINJAMAN_CHOICE)
+
+
+
 class Petugas (models.Model):
     id_petugas = models.CharField(max_length=10, primary_key='true')
     nama_petugas = models.CharField(max_length=30)
