@@ -58,8 +58,3 @@ class Ruang (models.Model):
     nama_ruang = models.CharField(max_length=30)
     kode_ruang = models.CharField(max_length=10)
     keterangan = models.TextField()
-
-class Stock (models.Model):
-    kode_stock = models.CharField(max_length=10, primary_key='true')
-    nama_barang = models.CharField(max_length=30)
-    jumlah = models.IntegerField()

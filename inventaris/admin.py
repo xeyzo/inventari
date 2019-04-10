@@ -23,6 +23,15 @@ class ExportCsvMixin:
     export_as_csv.short_description = "Export Selected"
 
 
+
+class SpamAdmin(admin.ModelAdmin):
+    readonly_fields = ('get_c',)
+    fields = ('a', 'b', 'get_c')
+
+    def get_c(self, obj):
+        return obj.a + obj.b
+
+
 class PegawaiAdmin (admin.ModelAdmin, ExportCsvMixin):
     list_display = ['id_pegawai','nama_pegawai','nip','alamat']
     list_filter = ('id_pegawai','nip')
@@ -81,13 +90,6 @@ class RuangAdmin (admin.ModelAdmin):
 
 admin.site.register(Ruang, RuangAdmin)
 
-class StockAdmin (admin.ModelAdmin):
-    list_display = ['kode_stock','nama_barang','jumlah']
-    list_filter = ()
-    search_field = ['kode_stock','nama_barang']
-    list_per_page = 10
-
-admin.site.register(Stock, StockAdmin)
 
 
 
